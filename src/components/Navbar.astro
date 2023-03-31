@@ -1,0 +1,48 @@
+---
+import { REPO_URL } from "../config";
+import ThemeToggleButton from "./ThemeToggleButton";
+---
+
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  })()
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else {
+    document.documentElement.classList.add('dark');
+  }
+</script>
+
+<nav class="sticky top-0 w-full py-3 h-16 bg-orange-100 dark:bg-zinc-700 h-18 backdrop-blur-sm z-20 ">
+    <div class="flex justify-center h-full items-center gap-8 tracking-wide">
+        <div >
+            <p>Bartosz Sobina</p>
+        </div>
+        <div>
+            <a href="/" class="hover:underline">About me</a>
+        </div>
+
+        <div>
+            <a href="/works" class="hover:underline">Works</a>
+        </div>
+        <div >
+            <a href="/posts" class="hover:underline">Posts</a>
+        </div>
+        <div class="mr-12">
+            <img
+                class="w-5 h-5 inline-block mr-2 align-middle"
+                src="/github.svg"
+            />
+            <a href={REPO_URL} target="_blank" class="hover:underline">Source Code</a>
+        </div>
+        <ThemeToggleButton client:load/>
+    </div>
+</nav>

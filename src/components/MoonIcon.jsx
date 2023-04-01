@@ -1,7 +1,7 @@
 export default function MoonIcon() {
   return (
-    <div className="bg-green-400 p-1.5 rounded">
-      <img className="w-6 h-6 inline-block  " src="/moon.svg" />
+    <div className="min-w-max bg-blue-400 hover:bg-blue-500 p-[5px] rounded">
+      <img className="w-6 h-6 inline-block  " src="/moon.svg" alt="moon"/>
     </div>
   );
 }

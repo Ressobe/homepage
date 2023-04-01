@@ -39,11 +39,9 @@ export default function ThemeToggleButton() {
   }, []);
 
   return mount ? (
-    <div>
-      <button onClick={switchTheme}>
-        {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-      </button>
-    </div>
+    <button onClick={switchTheme}>
+      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+    </button>
   ) : (
     <div />
   );

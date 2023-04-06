@@ -6,22 +6,22 @@ import Footer from "../components/Footer.astro";
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{SITE_TITLE}</title>
-	</head>
-	<body class=" bg-orange-100 dark:bg-zinc-800 dark:text-white break-words">
-		<Navbar />
-		<slot />
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{SITE_TITLE}</title>
+  </head>
+  <body class="bg-orange-100 dark:bg-zinc-800 dark:text-white break-words">
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
 </html>
 
 <style>
-	body {
-	  transition: color 0.5s ease;
-	}
+  body {
+    transition: color 0.5s ease;
+  }
 </style>

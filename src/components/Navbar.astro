@@ -1,69 +1,93 @@
 ---
 import { REPO_URL } from "../config";
 import ThemeToggleButton from "./ThemeToggleButton";
+import DropDownMenuToggle from "./DropDownMenuToggle";
 
-const pathname = new URL(Astro.request.url).pathname;
-// remove the first "/"
-const currentPath = pathname.slice(1); 
-
+const currentPath = new URL(Astro.request.url).pathname;
 ---
-
 
 <script is:inline>
   const theme = (() => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
     }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
     }
-    return 'light';
-  })()
+    return "light";
+  })();
 
-  if (theme === 'light') {
-    document.documentElement.classList.remove('dark');
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
   } else {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.add("dark");
   }
 </script>
 
+<nav
+  class="h-18 p-4 sticky top-0 w-full border-b-2 border-b-orange-300 bg-orange-100 dark:bg-zinc-800 dark:border-b-zinc-600 backdrop-blur-sm z-20"
+>
+  <div class="hidden md:block align-middle">
+    <ul
+      class="flex w-full justify-center content-center h-10 items-center gap-12 tracking-wide"
+    >
+      <li>
+        <a
+          href="/"
+          class:list={[
+            "hover:underline",
+            "hover:opacity-70",
+            currentPath === "/" ? "font-bold" : "",
+          ]}>About me</a
+        >
+      </li>
 
-<nav class="h-18 p-4 sticky top-0 w-full border-b-2 border-b-orange-200 bg-orange-100  dark:bg-zinc-800 dark:border-b-zinc-700  backdrop-blur-sm z-20 ">
-    <div class="hidden md:block">
-    <div class="flex w-full  justify-center content-center h-10 items-center gap-12 tracking-wide">
-        <div>
-            <a href="/" class="hover:underline hover:opacity-70">About me</a>
-        </div>
+      <li>
+        <a
+          href="/works"
+          class:list={[
+            "hover:underline",
+            "hover:opacity-70",
+            currentPath === "/works" ? "font-bold" : "",
+          ]}>Works</a
+        >
+      </li>
 
-        <div>
-            <a href="/works" class="hover:underline hover:opacity-70">Works</a>
-        </div>
-        <div >
-            <a href="/posts" class="hover:underline hover:opacity-70">Posts</a>
-        </div>
-        <div>
-            <img
-                class="w-8 h-8 inline-block mr-2 align-middle"
-                src="/github.svg"
-                alt="github icon"
-            />
-            <a href={REPO_URL} target="_blank" class="hover:underline hover:opacity-70">
-              Source Code
-            </a>
-        </div>
-      <ThemeToggleButton client:load/>
-    </div>
+      <li>
+        <a
+          href="/posts"
+          class:list={[
+            "hover:underline",
+            "hover:opacity-70",
+            currentPath === "/posts" ? "font-bold" : "",
+          ]}>Posts</a
+        >
+      </li>
+
+      <li>
+        <img
+          class="w-7 h-7 inline-block mr-2"
+          src="/github.svg"
+          alt="github icon"
+        />
+        <a
+          href={REPO_URL}
+          target="_blank"
+          class="hover:underline hover:opacity-70"
+        >
+          Source Code
+        </a>
+      </li>
+      <ThemeToggleButton client:load />
+    </ul>
   </div>
 
   <div class="md:hidden">
-    <div class="flex w-full justify-center content-center h-10 items-center gap-8 tracking-wide">
-      <div >
-            <p>Bartosz Sobina</p>
-      </div>
-      <ThemeToggleButton client:load/>
-      <div class="min-w-max bg-orange-300 p-[5px] rounded">
-        <img class="w-6 h-6 inline-block " src="/bars-3.svg" alt="bars" />
-      </div>
-    </div>
+    <li
+      class="flex w-full justify-end content-center h-10 items-center gap-8 tracking-wide"
+    >
+      <ThemeToggleButton client:load />
+      <DropDownMenuToggle client:load />
+    </li>
   </div>
 </nav>

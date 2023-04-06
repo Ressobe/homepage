@@ -1,0 +1,15 @@
+---
+const { path, text } = Astro.props;
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
+<a
+  href={path}
+  class:list={[
+    "hover:underline",
+    "hover:opacity-70",
+    currentPath === path ? "font-bold" : "",
+  ]}
+>
+  {text}
+</a>

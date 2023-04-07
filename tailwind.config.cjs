@@ -11,6 +11,9 @@ module.exports = {
         color4: "#d0aa5b ",
         color5: "#1fa1b8",
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
     },
   },
   plugins: [],

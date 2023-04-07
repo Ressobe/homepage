@@ -1,7 +1,8 @@
 import { useState } from "react";
 import BarsIcon from "./BarsIcon";
+import Menu from "./Menu";
 
-export default function DropDownMenu() {
+export default function MenuToggleButton() {
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -9,11 +10,11 @@ export default function DropDownMenu() {
   };
 
   return (
-    <div class="min-w-max bg-orange-300 p-[5px] rounded">
-      <button type="button" onClick={handleClick}>
+    <div class='min-w-max bg-orange-300 p-[5px] rounded relative mr-6'>
+      <button type='button' onClick={handleClick}>
         <BarsIcon />
-        {open && <h1>HI</h1>}
       </button>
+      {open && <Menu />}
     </div>
   );
 }

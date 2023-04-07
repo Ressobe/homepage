@@ -1,0 +1,70 @@
+---
+import ThemeToggleButton from "./ThemeToggleButton";
+import NavItem from "./NavItem.astro";
+import MenuToggleButton from "./MenuToggleButton";
+
+
+const textLinks: { label: string; href: string }[] = [
+  { label: "Home", href: "/" },
+  { label: "Works", href: "/works" },
+  // { label: "About Me", href: "/about" },
+  { label: "Posts", href: "/posts" },
+];
+---
+
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+</script>
+
+<nav
+  class=" sticky h-18 p-4 top-0 w-full border-b-2 border-b-orange-400 bg-orange-100  dark:bg-zinc-800 dark:border-b-zinc-600  z-20 drop-shadow-md"
+>
+
+  <div class="hidden md:block">
+    <ul
+      class="flex w-full justify-center content-center h-10 items-center gap-12 tracking-wide">
+      {
+        textLinks.map(({ label, href }) => (
+          <li>
+            <a
+              aria-current={Astro.url.pathname === href}
+              class:list={[
+                "hover:underline",
+                "hover:opacity-70",
+                {
+                  "font-bold":
+                    Astro.url.pathname === href ||
+                    (href !== "/" && Astro.url.pathname.startsWith(href)),
+                },
+              ]}
+              href={href}
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul> 
+  </div>
+
+  <div class="md:hidden">
+    <ul class="flex w-full justify-end content-center h-10 items-center gap-8 tracking-wide">
+      <MenuToggleButton client:load />
+    </ul>
+  </div>
+  <ThemeToggleButton client:load />
+</nav>

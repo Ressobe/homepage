@@ -17,7 +17,7 @@ const initializeTheme = () => {
 };
 
 export default function ThemeToggleButton() {
-  const [mount, setIsMounted] = useState(false);
+  const [mounted, setIsMounted] = useState(false);
   const [theme, setTheme] = useState(initializeTheme());
 
   useEffect(() => {
@@ -36,10 +36,10 @@ export default function ThemeToggleButton() {
 
   useEffect(() => {
     setIsMounted(true);
-  }, []);
+  });
 
-  return mount ? (
-    <button  onClick={switchTheme}>
+  return mounted ? (
+    <button className='inline h-full' onClick={switchTheme}>
       {theme === "dark" ? <SunIcon /> : <MoonIcon />}
     </button>
   ) : (

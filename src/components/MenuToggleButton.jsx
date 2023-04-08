@@ -10,11 +10,11 @@ export default function MenuToggleButton() {
   };
 
   return (
-    <div class='min-w-max bg-orange-300 p-[5px] rounded relative mr-6'>
+    <>
       <button type='button' onClick={handleClick}>
         <BarsIcon />
       </button>
       {open && <Menu />}
-    </div>
+    </>
   );
 }

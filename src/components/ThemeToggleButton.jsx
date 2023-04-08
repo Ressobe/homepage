@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import SunIcon from "./SunIcon";
-import MoonIcon from "./MoonIcon";
+import SunIcon from "./icons/SunIcon";
+import MoonIcon from "./icons/MoonIcon";
 
 const initializeTheme = () => {
   if (import.meta.env.SSR) {

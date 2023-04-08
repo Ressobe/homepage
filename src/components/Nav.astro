@@ -1,17 +1,13 @@
 ---
 import ThemeToggleButton from "./ThemeToggleButton";
 import MenuToggleButton from "./MenuToggleButton";
-const textLinks: { label: string; href: string }[] = [
-  { label: "Home", href: "/" },
-  { label: "Works", href: "/works" },
-  { label: "Posts", href: "/posts" },
-];
+import { navLinks } from "../config";
 
 ---
 <nav class="relative flex justify-between md:justify-center h-18 top-0  p-4 w-full bg-orange-100 border-b-orange-400 dark:bg-zinc-800 dark:border-b-zinc-600 z-20 drop-shadow-md">
   <ul class="mr-20 hidden md:flex flex-row  justify-center  content-center items-center gap-8 ">
       {
-        textLinks.map(({ label, href }) => (
+        navLinks.map(({ label, href }) => (
           <li>
             <a
               aria-current={Astro.url.pathname === href}
@@ -33,7 +29,7 @@ const textLinks: { label: string; href: string }[] = [
       }
   </ul>
   <div class="md:hidden">
-  <MenuToggleButton client:load />
-</div>
+    <MenuToggleButton client:load />
+  </div>
   <ThemeToggleButton client:load />
 </nav>  

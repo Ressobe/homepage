@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BarsIcon from "./BarsIcon";
+import BarsIcon from "./icons/BarsIcon";
 import Menu from "./Menu";
 
 export default function MenuToggleButton() {

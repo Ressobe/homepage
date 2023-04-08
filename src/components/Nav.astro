@@ -1,8 +1,8 @@
 ---
 import ThemeToggleButton from "./ThemeToggleButton";
-import MenuToggleButton from "./MenuToggleButton";
 import { navLinks } from "../config";
-
+import Menu from "./Menu.astro";
+import BarsIcon from "./icons/BarsIcon";
 ---
 <nav class="relative flex justify-between md:justify-center h-18 top-0  p-4 w-full bg-orange-100 border-b-orange-400 dark:bg-zinc-800 dark:border-b-zinc-600 z-20 drop-shadow-md">
   <ul class="mr-20 hidden md:flex flex-row  justify-center  content-center items-center gap-8 ">
@@ -29,7 +29,16 @@ import { navLinks } from "../config";
       }
   </ul>
   <div class="md:hidden">
-    <MenuToggleButton client:load />
+    <BarsIcon />
+    <Menu />
   </div>
   <ThemeToggleButton client:load />
 </nav>  
+
+<script>
+  const button = document.querySelector("#toggle-menu");
+  const menu = document.querySelector("#drop-down-menu")
+  button.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  })
+</script>

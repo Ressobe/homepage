@@ -1,44 +1,49 @@
 ---
 import ThemeToggleButton from "./ThemeToggleButton";
-import { navLinks } from "../config";
+import { NAV_LINKS } from "../config";
 import Menu from "./Menu.astro";
 import BarsIcon from "./icons/BarsIcon";
 ---
-<nav class="relative flex justify-between md:justify-center h-18 top-0  p-4 w-full bg-orange-100 border-b-orange-400 dark:bg-zinc-800 dark:border-b-zinc-600 z-20 drop-shadow-md">
-  <ul class="mr-20 hidden md:flex flex-row  justify-center  content-center items-center gap-8 ">
-      {
-        navLinks.map(({ label, href }) => (
-          <li>
-            <a
-              aria-current={Astro.url.pathname === href}
-              class:list={[
-                "hover:underline",
-                "hover:opacity-70",
-                {
-                  "font-bold":
-                    Astro.url.pathname === href ||
-                    (href !== "/" && Astro.url.pathname.startsWith(href)),
-                },
-              ]}
-              href={href}
-            >
-              {label}
-            </a>
-          </li>
-        ))
-      }
+
+<nav
+  class="sticky flex justify-between md:justify-center items-center content-center h-18 top-0 p-4 w-full bg-orange-100 border-b-orange-400 border-b-2 dark:bg-zinc-800 dark:border-b-zinc-600 z-20 drop-shadow-md"
+>
+  <ul
+    class="mr-16 hidden md:flex flex-row justify-center content-center items-center gap-14"
+  >
+    {
+      NAV_LINKS.map(({ label, href }) => (
+        <li>
+          <a
+            aria-current={Astro.url.pathname === href}
+            class:list={[
+              "hover:underline",
+              "hover:opacity-70",
+              {
+                "font-bold":
+                  Astro.url.pathname === href ||
+                  (href !== "/" && Astro.url.pathname.startsWith(href)),
+              },
+            ]}
+            href={href}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
   </ul>
   <div class="md:hidden">
     <BarsIcon />
     <Menu />
   </div>
   <ThemeToggleButton client:load />
-</nav>  
+</nav>
 
 <script>
   const button = document.querySelector("#toggle-menu");
-  const menu = document.querySelector("#drop-down-menu")
-  button.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  })
+  const menu = document.querySelector("#drop-down-menu");
+  button.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
 </script>

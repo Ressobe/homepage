@@ -2,6 +2,7 @@
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import Video from "../components/Video.astro";
 ---
 
 <script is:inline>
@@ -36,9 +37,13 @@ import Footer from "../components/Footer.astro";
 
     <title>{SITE_TITLE}</title>
   </head>
-  <body class="bg-orange-100 dark:bg-zinc-800 dark:text-white break-words">
+  <body
+    class="min-h-full bg-orange-100 dark:bg-zinc-800 dark:text-white break-words"
+  >
     <Nav />
+    <Video />
     <slot />
+
     <Footer />
   </body>
 </html>

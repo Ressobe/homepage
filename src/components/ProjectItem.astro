@@ -3,13 +3,13 @@ interface Props {
   href: string;
   src: string;
   projectTitle: string;
-  projectDescription?: string;
+  projectDescription: string;
 }
 const { href, src, projectTitle, projectDescription } = Astro.props;
 ---
 
 <div
-  class="block max-w-sm rounded-lg bg-amber-100 shadow-lg dark:bg-neutral-700"
+  class="block max-w-xs rounded-lg bg-orange-50 shadow-lg dark:bg-neutral-700"
 >
   <a
     href={href}

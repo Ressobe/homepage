@@ -1,29 +1,34 @@
 ---
-import { navLinks } from "../config";
+import { NAV_LINKS } from "../config";
 ---
 
-
-<div class='hidden absolute min-w-max top-16 bg-orange-300 p-3 pr-20 rounded' id="drop-down-menu">
-  <ul class='flex flex-col h-full text-zinc-950'>
-    {navLinks.map(({ label, href }) => (
-      <li>
-        <a
-          aria-current={Astro.url.pathname === href}
-          class:list={[
-            "hover:underline",
-            "hover:opacity-70",
-            "p-4",
-            {
-              "font-bold":
-                Astro.url.pathname === href ||
-                (href !== "/" && Astro.url.pathname.startsWith(href)),
-            },
-          ]}
-          href={href}
-        >
-          {label}
-        </a>
-      </li>
-    ))}
+<div
+  class="hidden absolute min-w-max top-16 bg-orange-300 p-3 pr-20 rounded"
+  id="drop-down-menu"
+>
+  <ul class="flex flex-col h-full text-zinc-950">
+    {
+      NAV_LINKS.map(({ label, href }) => (
+        <li>
+          <a
+            aria-current={Astro.url.pathname === href}
+            class:list={[
+              "hover:underline",
+              "hover:opacity-70",
+              "p-4",
+              "py-20",
+              {
+                "font-bold":
+                  Astro.url.pathname === href ||
+                  (href !== "/" && Astro.url.pathname.startsWith(href)),
+              },
+            ]}
+            href={href}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </div>

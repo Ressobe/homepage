@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import StackItem from "../components/StackItem.astro";
+import Skills from "../components/Skills";
 ---
 
 <Layout>
@@ -30,26 +30,18 @@ import StackItem from "../components/StackItem.astro";
         elit. Maecenas sit amet vulputate diam, ac euismod turpis. Phasellus
         quis blandit mi. Maecenas tellus sem, commodo vitae ante vel, porttitor
         aliquam sapien. Curabitur sagittis a tellus et iaculis. In et gravida
-        lectus, sit amet vestibulum nisi. Proin ullamcorper consequat neque at
-        scelerisque. Aenean tempus sem hendrerit condimentum ultrices. Nunc
-        volutpat leo non convallis bibendum.
       </p>
     </section>
 
-    <section class="mt-10 text-justify">
-      <h2>🧰 Languages and Tools that I use</h2>
-      <p>How well I known something</p>
-      <StackItem name="python" src="python/python-original.svg" level={3} />
-      <StackItem name="python" src="python/python-original.svg" level={1} />
-      <StackItem name="python" src="python/python-original.svg" level={4} />
-    </section>
+    <h1 class="font-bold mt-5 text-2xl text-center">🧰 Skills and Tools</h1>
+    <Skills client:load />
 
-    <section>
-      <p>What I want to learn</p>
-    </section>
+    <!-- <section> -->
+    <!--   <p>What I want to learn</p> -->
+    <!-- </section> -->
 
-    <section>
-      <p>Timeline</p>
-    </section>
+    <!-- <section> -->
+    <!--   <p>Timeline</p> -->
+    <!-- </section> -->
   </main>
 </Layout>

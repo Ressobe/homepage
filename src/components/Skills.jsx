@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SKILLS, categories } from "../config";
+import { SKILLS, categories } from "../consts";
 import SkillItem from "./SkillItem";
 
 const filtrSkills = (currentCategory) => {

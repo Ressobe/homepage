@@ -1,4 +1,4 @@
-import { DEVICONS_URL } from "../config";
+import { DEVICONS_URL } from "../consts";
 
 export default function SkillItem({ name, src, level }) {
   const rest = 5 - level;

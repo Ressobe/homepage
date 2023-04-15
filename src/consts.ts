@@ -52,66 +52,68 @@ enum SkillsCategory {
   "tools",
 }
 
+export const categories = ["frontend", "backend", "tools"];
+
 export const SKILLS: {
   name: string;
   src: string;
   level: number;
-  category: SkillsCategory;
+  category: string;
 }[] = [
   {
     name: "HTML",
     src: "/html5/html5-original.svg",
     level: 5,
-    category: SkillsCategory.frontend,
+    category: "frontend",
   },
 
   {
     name: "CSS",
     src: "/css3/css3-original.svg",
     level: 3,
-    category: SkillsCategory.frontend,
+    category: "frontend",
   },
 
   {
     name: "Javascript",
     src: "javascript/javascript-original.svg",
     level: 2,
-    category: SkillsCategory.frontend,
+    category: "frontend",
   },
 
   {
     name: "React",
     src: "react/react-original.svg",
     level: 2,
-    category: SkillsCategory.frontend,
+    category: "frontend",
   },
 
   {
     name: "Python",
     src: "python/python-original.svg",
     level: 4,
-    category: SkillsCategory.backend,
+    category: "backend",
   },
 
   {
     name: "Linux",
     src: "linux/linux-original.svg",
     level: 3,
-    category: SkillsCategory.tools,
+    category: "tools",
   },
 
   {
     name: "Git",
     src: "git/git-original.svg",
     level: 2,
-    category: SkillsCategory.tools,
+    category: "tools",
   },
 
   {
     name: "Typescript",
     src: "typescript/typescript-original.svg",
     level: 1,
-    category: SkillsCategory.tools,
+    category: "tools",
   },
 ];
 

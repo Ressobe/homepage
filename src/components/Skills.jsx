@@ -7,13 +7,13 @@ const filtrSkills = (currentCategory) => {
 };
 
 export default function Skills() {
-  const [currentCategory, setCurrentCategory] = useState(0);
+  const [currentCategoryIdx, setCurrentCategory] = useState(0);
   const [skillsFiltred, setSkillsFiltred] = useState(() =>
-    filtrSkills(categories[currentCategory])
+    filtrSkills(categories[currentCategoryIdx])
   );
 
   const handleClickArrowRight = () => {
-    let idx = currentCategory;
+    let idx = currentCategoryIdx;
     if (idx === categories.length - 1) {
       idx = 0;
     } else {
@@ -23,7 +23,7 @@ export default function Skills() {
   };
 
   const handleClickArrowLeft = () => {
-    let idx = currentCategory;
+    let idx = currentCategoryIdx;
     if (idx === 0) {
       idx = categories.length - 1;
     } else {
@@ -33,30 +33,54 @@ export default function Skills() {
   };
 
   useEffect(() => {
-    setSkillsFiltred(filtrSkills(categories[currentCategory]));
-  }, [currentCategory]);
+    setSkillsFiltred(filtrSkills(categories[currentCategoryIdx]));
+  }, [currentCategoryIdx]);
 
   return (
-    <div className="relative min-w-max h-80 bg-orange-200 dark:bg-zinc-700  mt-10 text-center border-2 border-orange-300 dark:border-zinc-600 rounded">
-      <button
-        className="absolute left-0 cursor-pointer my-1 mx-4 hover:opacity-60 active:opacity-40"
-        onClick={() => handleClickArrowLeft()}
-      >
-        <img className="w-12" src="/left-long-solid.svg" />
-      </button>
-
-      <button
-        className="absolute right-0 cursor-pointer my-1 mx-4 hover:opacity-60 active:opacity-40"
-        onClick={() => handleClickArrowRight()}
-      >
-        <img className="w-12" src="/right-long-solid.svg" />
-      </button>
-
-      <div className="mt-10 flex-col justify-center items-center w-full h-full">
-        <h1 className="font-bold mt-5">🧰 {categories[currentCategory].toUpperCase()} </h1>
+    <div className="relative min-w-max bg-orange-100 dark:bg-zinc-700   text-center border-2 border-orange-300 dark:border-zinc-600 rounded">
+      <h2 className="mt-3 text-xl font-bold">{categories[currentCategoryIdx].toUpperCase()}</h2>
+      <div className="mt-3  grid  grid-cols-1 grid-rows-3 gap-3 md:grid-rows-3 md:grid-cols-2 max-h-min">
         {skillsFiltred.map(({ name, src, level }) => (
           <SkillItem key={name} name={name} src={src} level={level} />
         ))}
+      </div>
+
+      {/* <button */}
+      {/*   className="absolute left-24 bottom-0 cursor-pointer my-1 mx-4 hover:opacity-60 active:opacity-40" */}
+      {/*   onClick={() => handleClickArrowLeft()} */}
+      {/* > */}
+      {/*   <img className="w-8" src="/left-long-solid.svg" /> */}
+      {/* </button> */}
+
+      {/* <button */}
+      {/*   className="absolute right-24 bottom-0 cursor-pointer my-1 mx-4 hover:opacity-60 active:opacity-40" */}
+      {/*   onClick={() => handleClickArrowRight()} */}
+      {/* > */}
+      {/*   <img className="w-8" src="/right-long-solid.svg" /> */}
+      {/* </button> */}
+
+      <div className="flex justify-center items-center">
+        <button
+          className="cursor-pointer mx-4 hover:opacity-60 active:opacity-40"
+          onClick={() => handleClickArrowLeft()}
+        >
+          <img className="w-8" src="/left-long-solid.svg" />
+        </button>
+
+        {Array(categories.length)
+          .fill(1)
+          .map((_, i) => (
+            <div
+              key={i}
+              className="mx-2 inline-block w-4 h-4 bg-black dark:bg-zinc-300 rounded-full"
+            />
+          ))}
+        <button
+          className="cursor-pointer mx-4 hover:opacity-60 active:opacity-40"
+          onClick={() => handleClickArrowRight()}
+        >
+          <img className="w-8" src="/right-long-solid.svg" />
+        </button>
       </div>
     </div>
   );

@@ -13,23 +13,15 @@ export default function Skills() {
   );
 
   const handleClickArrowRight = () => {
-    let idx = currentCategoryIdx;
-    if (idx === categories.length - 1) {
-      idx = 0;
-    } else {
-      idx++;
-    }
-    setCurrentCategory(idx);
+    const isLastSlide = currentCategoryIdx === categories.length - 1;
+    const newIdx = isLastSlide ? 0 : currentCategoryIdx + 1;
+    setCurrentCategory(newIdx);
   };
 
   const handleClickArrowLeft = () => {
-    let idx = currentCategoryIdx;
-    if (idx === 0) {
-      idx = categories.length - 1;
-    } else {
-      idx--;
-    }
-    setCurrentCategory(idx);
+    const isFristSlide = currentCategoryIdx === 0;
+    const newIdx = isFristSlide ? categories.length - 1 : currentCategoryIdx - 1;
+    setCurrentCategory(newIdx);
   };
 
   useEffect(() => {
@@ -45,20 +37,6 @@ export default function Skills() {
         ))}
       </div>
 
-      {/* <button */}
-      {/*   className="absolute left-24 bottom-0 cursor-pointer my-1 mx-4 hover:opacity-60 active:opacity-40" */}
-      {/*   onClick={() => handleClickArrowLeft()} */}
-      {/* > */}
-      {/*   <img className="w-8" src="/left-long-solid.svg" /> */}
-      {/* </button> */}
-
-      {/* <button */}
-      {/*   className="absolute right-24 bottom-0 cursor-pointer my-1 mx-4 hover:opacity-60 active:opacity-40" */}
-      {/*   onClick={() => handleClickArrowRight()} */}
-      {/* > */}
-      {/*   <img className="w-8" src="/right-long-solid.svg" /> */}
-      {/* </button> */}
-
       <div className="flex justify-center items-center">
         <button
           className="cursor-pointer mx-4 hover:opacity-60 active:opacity-40"
@@ -72,7 +50,11 @@ export default function Skills() {
           .map((_, i) => (
             <div
               key={i}
-              className="mx-2 inline-block w-4 h-4 bg-black dark:bg-zinc-300 rounded-full"
+              className={`mx-2 opacity-80 ease-in duration-150 inline-block w-4 h-4 rounded-full  ${
+                i === currentCategoryIdx
+                  ? "bg-zinc-900 dark:bg-zinc-400"
+                  : "bg-zinc-500  dark:bg-black"
+              }`}
             />
           ))}
         <button

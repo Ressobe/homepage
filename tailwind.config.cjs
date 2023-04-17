@@ -11,8 +11,16 @@ module.exports = {
         color4: "#d0aa5b ",
         color5: "#1fa1b8",
       },
+      keyframes: {
+        slide: {
+          "0%": { transform: "translateX(-100%)" },
+          "50%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+      },
       animation: {
         "spin-slow": "spin 3s linear infinite",
+        "slide-in": "slide 1s ease-in ",
       },
     },
   },

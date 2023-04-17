@@ -4,44 +4,41 @@ import Skills from "../components/Skills";
 ---
 
 <Layout>
-  <main class="px-8 py-10 mx-auto max-w-2xl">
-    <div>
-      <div class="grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2">
-        <div class="text-4xl min-w-max text-justify justify-self-start">
-          <h1 class="font-bold mt-5">Bartosz Sobina</h1>
-          <section
-            class="text-zinc-700 text-sm dark:text-zinc-400 text-justify"
-          >
-            Computer Engineering Student ( Code / Linux / Terminal )
-          </section>
-        </div>
+  <div>
+    <div class="grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2">
+      <div class="text-4xl min-w-max text-justify justify-self-start">
+        <h1 class="font-bold mt-5">Bartosz Sobina</h1>
+        <section class="text-zinc-700 text-sm dark:text-zinc-400 text-justify">
+          Computer Engineering Student ( Code / Linux / Terminal )
+        </section>
+      </div>
 
-        <div class="justify-self-center md:justify-self-end">
-          <img
-            class="h-24 w-24 rounded-full border-white border-2 drop-shadow-sm"
-            src="/avatar.jpeg"
-          />
-        </div>
+      <div class="justify-self-center md:justify-self-end">
+        <img
+          class="h-24 w-24 rounded-full border-white border-2 drop-shadow-sm"
+          src="/avatar.jpeg"
+        />
       </div>
     </div>
-    <section class="mt-10 text-justify">
-      <p>
-        Something about me Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit. Maecenas sit amet vulputate diam, ac euismod turpis. Phasellus
-        quis blandit mi. Maecenas tellus sem, commodo vitae ante vel, porttitor
-        aliquam sapien. Curabitur sagittis a tellus et iaculis. In et gravida
-      </p>
-    </section>
+  </div>
+  <section class="mt-10 text-justify">
+    <p>
+      Something about me Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Maecenas sit amet vulputate diam, ac euismod turpis. Phasellus quis
+      blandit mi. Maecenas tellus sem, commodo vitae ante vel, porttitor aliquam
+      sapien. Curabitur sagittis a tellus et iaculis. In et gravida
+    </p>
+  </section>
 
-    <h1 class="font-bold mt-5 text-2xl text-center">🧰 Skills and Tools</h1>
+  <section class="mt-20">
     <Skills client:load />
+  </section>
 
-    <!-- <section> -->
-    <!--   <p>What I want to learn</p> -->
-    <!-- </section> -->
+  <!-- <section> -->
+  <!--   <p>What I want to learn</p> -->
+  <!-- </section> -->
 
-    <!-- <section> -->
-    <!--   <p>Timeline</p> -->
-    <!-- </section> -->
-  </main>
+  <!-- <section> -->
+  <!--   <p>Timeline</p> -->
+  <!-- </section> -->
 </Layout>

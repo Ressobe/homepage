@@ -1,8 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SearchBar from "../components/SearchBar";
 ---
 
 <Layout>
-  <main class="px-8 py-10 mx-auto max-w-2xl"></main>
+  <div class="flex justify-center items-center">
+    <div
+      class="flex items-center w-80 rounded-md py-2 px-8 border-2 border-zinc-300"
+    >
+      <button class="inline px-4">
+        <img class="inline w-4" src="/search.svg" />
+      </button>
+      <span>Search</span>
+    </div>
+  </div>
+  <SearchBar />
 </Layout>
-

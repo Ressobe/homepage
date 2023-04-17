@@ -29,9 +29,9 @@ export default function Skills() {
   }, [categoryIdx]);
 
   return (
-    <div className="relative min-w-max bg-orange-100 dark:bg-zinc-700   text-center border-2 border-orange-300 dark:border-zinc-600 rounded">
-      <h2 className="mt-3 text-xl font-bold">{categories[categoryIdx].toUpperCase()}</h2>
-      <div className="mt-3  grid  grid-cols-1 grid-rows-3 gap-3 md:grid-rows-3 md:grid-cols-2 max-h-min">
+    <div className="relative min-w-max bg-orange-100 dark:bg-zinc-700 text-center dark:border-zinc-600 rounded">
+      <h2 className="mt-5 text-xl font-bold">{categories[categoryIdx].toUpperCase()}</h2>
+      <div className="mt-2 grid grid-cols-1 grid-rows-3 gap-4  md:grid-rows-3 md:grid-cols-2 max-h-min">
         {skillsFiltred.map(({ name, src, level }) => (
           <SkillItem key={name} name={name} src={src} level={level} />
         ))}

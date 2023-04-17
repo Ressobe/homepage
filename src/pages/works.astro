@@ -1,24 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProjectItem from "../components/ProjectItem.astro";
-import { PROJECTS } from "../config";
+import { PROJECTS } from "../consts";
 ---
 
 <Layout>
-  <main class="px-8 py-10 mx-auto max-w-2xl">
-    <div
-      class="grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-8 justify-items-center"
-    >
-      {
-        PROJECTS.map(({ href, src, projectTitle, projectDescription }) => (
-          <ProjectItem
-            href={href}
-            src={src}
-            projectTitle={projectTitle}
-            projectDescription={projectDescription}
-          />
-        ))
-      }
-    </div>
-  </main>
+  <div
+    class="grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-8 justify-items-center"
+  >
+    {
+      PROJECTS.map(({ href, src, projectTitle, projectDescription }) => (
+        <ProjectItem
+          href={href}
+          src={src}
+          projectTitle={projectTitle}
+          projectDescription={projectDescription}
+        />
+      ))
+    }
+  </div>
 </Layout>

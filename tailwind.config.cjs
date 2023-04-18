@@ -12,15 +12,20 @@ module.exports = {
         color5: "#1fa1b8",
       },
       keyframes: {
-        slide: {
+        "slide-from-left": {
           "0%": { transform: "translateX(-100%)" },
-          "50%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+
+        "slide-from-right": {
+          "0%": { transform: "translateX(+100%)" },
           "100%": { transform: "translateX(0)" },
         },
       },
       animation: {
         "spin-slow": "spin 3s linear infinite",
-        "slide-in": "slide 1s ease-in ",
+        "slide-from-left": "slide-from-left 0.5s ease-in ",
+        "slide-from-right": "slide-from-right 0.5s ease-in ",
       },
     },
   },

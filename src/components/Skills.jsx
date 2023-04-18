@@ -3,6 +3,7 @@ import { SKILLS, categories } from "../consts";
 import SkillItem from "./SkillItem";
 
 // Slide animation from left and right
+// Count this from index and pass to skillitem
 
 const filtrSkills = (currentCategory) => {
   return SKILLS.filter((item) => item.category === currentCategory);
@@ -11,18 +12,6 @@ const filtrSkills = (currentCategory) => {
 export default function Skills() {
   const [categoryIdx, setCategoryIdx] = useState(0);
   const [skillsFiltred, setSkillsFiltred] = useState(() => filtrSkills(categories[categoryIdx]));
-
-  const handleClickArrowRight = () => {
-    const isLastCategory = categoryIdx === categories.length - 1;
-    const newIdx = isLastCategory ? 0 : categoryIdx + 1;
-    setCategoryIdx(newIdx);
-  };
-
-  const handleClickArrowLeft = () => {
-    const isFristCategory = categoryIdx === 0;
-    const newIdx = isFristCategory ? categories.length - 1 : categoryIdx - 1;
-    setCategoryIdx(newIdx);
-  };
 
   useEffect(() => {
     setSkillsFiltred(filtrSkills(categories[categoryIdx]));
@@ -37,22 +26,6 @@ export default function Skills() {
             <SkillItem key={name} name={name} src={src} level={level} />
           ))}
         </div>
-
-        {/* <div className="flex justify-center items-center"> */}
-        {/*   <button */}
-        {/*     className="cursor-pointer mx-4 hover:opacity-60 active:opacity-40" */}
-        {/*     onClick={() => handleClickArrowLeft()} */}
-        {/*   > */}
-        {/*     <img className="w-8" src="/left-long-solid.svg" /> */}
-        {/*   </button> */}
-
-        {/*   <button */}
-        {/*     className="cursor-pointer mx-4 hover:opacity-60 active:opacity-40" */}
-        {/*     onClick={() => handleClickArrowRight()} */}
-        {/*   > */}
-        {/*     <img className="w-8" src="/right-long-solid.svg" /> */}
-        {/*   </button> */}
-        {/* </div> */}
       </div>
       <div className="text-center mt-5">
         {categories.map((_, i) => (

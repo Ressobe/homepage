@@ -12,6 +12,17 @@ const filtrSkills = (currentCategory) => {
 export default function Skills() {
   const [categoryIdx, setCategoryIdx] = useState(0);
   const [skillsFiltred, setSkillsFiltred] = useState(() => filtrSkills(categories[categoryIdx]));
+  const [slideAnimationDirection, setSlideAnimationDirection] = useState("");
+
+  const categoryDotClicked = (idx) => {
+    if (idx > categoryIdx) {
+      setSlideAnimationDirection("left");
+    } else {
+      setSlideAnimationDirection("right");
+    }
+
+    setCategoryIdx(idx);
+  };
 
   useEffect(() => {
     setSkillsFiltred(filtrSkills(categories[categoryIdx]));
@@ -34,7 +45,7 @@ export default function Skills() {
             className={`mx-2 opacity-80 ease-in duration-150 inline-block w-6 h-6 rounded-full cursor-pointer ${
               i === categoryIdx ? "bg-zinc-900 dark:bg-zinc-400" : "bg-zinc-500  dark:bg-black"
             }`}
-            onClick={() => setCategoryIdx(i)}
+            onClick={() => categoryDotClicked(i)}
           />
         ))}
       </div>

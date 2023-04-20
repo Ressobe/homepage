@@ -13,19 +13,18 @@ module.exports = {
       },
       keyframes: {
         "slide-from-left": {
-          "0%": { transform: "translateX(-100%)" },
+          "0%": { transform: "translateX(-80%)" },
           "100%": { transform: "translateX(0)" },
         },
-
         "slide-from-right": {
-          "0%": { transform: "translateX(+100%)" },
+          "0%": { transform: "translateX(80%)" },
           "100%": { transform: "translateX(0)" },
         },
       },
       animation: {
         "spin-slow": "spin 3s linear infinite",
-        "slide-from-left": "slide-from-left 0.5s ease-in ",
-        "slide-from-right": "slide-from-right 0.5s ease-in ",
+        "slide-from-left": "slide-from-left 0.8s ease-in ",
+        "slide-from-right": "slide-from-right 0.8s ease-in ",
       },
     },
   },

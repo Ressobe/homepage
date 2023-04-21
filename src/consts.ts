@@ -96,19 +96,6 @@ export const SKILLS: {
   },
 
   {
-    name: "Django",
-    src: "django/django-plain.svg",
-    level: 3,
-    category: "backend",
-  },
-
-  {
-    name: "Rust",
-    src: "rust/rust-plain.svg",
-    level: 2,
-    category: "backend",
-  },
-  {
     name: "Linux",
     src: "linux/linux-original.svg",
     level: 3,

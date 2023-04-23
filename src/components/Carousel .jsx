@@ -3,8 +3,6 @@ import CarouselItem from "./CarouselItem";
 import { SKILLS } from "../consts";
 
 // On hover show icons and stop autplay
-// Change arrows
-// Radio buttons style
 
 export default function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -54,9 +52,9 @@ export default function Carousel() {
         })}
       </div>
 
-      <div className="flex justify-evenly">
+      <div className="flex justify-center gap-4">
         <button onClick={handleClickArrowLeft}>
-          <img className="w-10" src="/left-long-solid.svg" />
+          <img className="w-3.5" src="/chevron-left-solid.svg" />
         </button>
         <div className="flex justify-around items-center">
           {SKILLS.map((_, i) => (
@@ -64,7 +62,7 @@ export default function Carousel() {
               type="radio"
               name="select-by-idx"
               key={i}
-              className={`mx-1 opacity-80 ease-in duration-150 inline-block w-4 h-4 rounded-full cursor-pointer ${
+              className={`appearance-none   w-6 py-1  rounded-sm border-black mx-1  cursor-pointer ${
                 i === activeIndex ? "bg-zinc-900 dark:bg-zinc-400" : "bg-zinc-500  dark:bg-black"
               }`}
               checked={i === activeIndex ? 1 : 0}
@@ -73,7 +71,7 @@ export default function Carousel() {
           ))}
         </div>
         <button onClick={handleClickArrowRight}>
-          <img className="w-10" src="/right-long-solid.svg" />
+          <img className="w-3.5" src="/chevron-right-solid.svg" />
         </button>
       </div>
     </div>

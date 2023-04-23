@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import CarouselItem from "./CarouselItem";
 import { SKILLS } from "../consts";
 
+// On hover show icons and stop autplay
+// Change arrows
+// Radio buttons style
+
 export default function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -20,12 +24,23 @@ export default function Carousel() {
   useEffect(() => {
     const data = localStorage.getItem("skills-idx");
     if (data) {
-      setActiveIndex(parseInt(JSON.parse(data)));
+      setActiveIndex(JSON.parse(data));
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("skills-idx", JSON.stringify(activeIndex));
+  }, [activeIndex]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const isLastCategory = activeIndex === SKILLS.length - 1;
+      const newIdx = isLastCategory ? 0 : activeIndex + 1;
+      setActiveIndex(newIdx);
+    }, 3000);
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [activeIndex]);
 
   return (
@@ -52,8 +67,8 @@ export default function Carousel() {
               className={`mx-1 opacity-80 ease-in duration-150 inline-block w-4 h-4 rounded-full cursor-pointer ${
                 i === activeIndex ? "bg-zinc-900 dark:bg-zinc-400" : "bg-zinc-500  dark:bg-black"
               }`}
-              defaultChecked={i === activeIndex ? 1 : 0}
-              onClick={() => setActiveIndex(i)}
+              checked={i === activeIndex ? 1 : 0}
+              onChange={() => setActiveIndex(i)}
             />
           ))}
         </div>

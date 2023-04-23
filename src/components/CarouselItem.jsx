@@ -3,7 +3,10 @@ import { DEVICONS_URL } from "../consts";
 export default function CarouselItem({ name, src, level, width }) {
   const rest = 5 - level;
   return (
-    <div className="inline-flex items-center justify-center h-32" style={{ width: width }}>
+    <div
+      className="inline-flex items-center justify-center min-h-max my-6"
+      style={{ width: width }}
+    >
       <img className="w-14" src={DEVICONS_URL + src} />
       {Array(level)
         .fill(1)

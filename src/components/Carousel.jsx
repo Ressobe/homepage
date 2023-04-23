@@ -35,7 +35,7 @@ export default function Carousel() {
       const isLastCategory = activeIndex === SKILLS.length - 1;
       const newIdx = isLastCategory ? 0 : activeIndex + 1;
       setActiveIndex(newIdx);
-    }, 3000);
+    }, 4000);
     return () => {
       clearInterval(intervalId);
     };

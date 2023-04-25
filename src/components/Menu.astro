@@ -3,20 +3,18 @@ import { NAV_LINKS } from "../consts";
 ---
 
 <div
-  class="hidden absolute min-w-max top-16 bg-orange-300 p-3 pr-20 rounded"
+  class="hidden absolute min-h-max min-w-max top-16 bg-orange-300 dark:bg-zinc-400 p-3 pr-20 rounded"
   id="drop-down-menu"
 >
-  <ul class="flex flex-col h-full text-zinc-950">
+  <ul class="flex flex-col h-full text-zinc-950 w-full">
     {
       NAV_LINKS.map(({ label, href }) => (
-        <li>
+        <li class="p-2">
           <a
             aria-current={Astro.url.pathname === href}
             class:list={[
               "hover:underline",
               "hover:opacity-70",
-              "p-4",
-              "py-20",
               {
                 "font-bold":
                   Astro.url.pathname === href ||

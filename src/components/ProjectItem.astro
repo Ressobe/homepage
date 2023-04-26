@@ -8,20 +8,13 @@ interface Props {
 const { href, src, projectTitle, projectDescription } = Astro.props;
 ---
 
-<div
-  class="block max-w-xs rounded-lg bg-orange-50 shadow-lg dark:bg-neutral-700"
->
-  <a
-    href={href}
-    target="_blank"
-    data-te-ripple-init
-    data-te-ripple-color="light"
-  >
-    <img class="rounded-t-lg" src={src} alt="terminal site" />
+<div class="block max-w-xs text-center">
+  <a href={href} data-te-ripple-init data-te-ripple-color="light">
+    <img class="rounded" src={src} alt="terminal site" />
   </a>
-  <div class="p-6">
+  <div class="p-4">
     <h5
-      class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
+      class="mb-1 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
     >
       {projectTitle}
     </h5>

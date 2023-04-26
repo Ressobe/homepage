@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const projects = await Astro.glob("./projects/*.md");
+
+  return projects.map((project) => ({
+    params: {
+      slug: project.frontmatter.slug,
+    },
+    props: {
+      project,
+    },
+  }));
+}
+
+const { Content, frontmatter } = Astro.props.project;
+---
+
+<Layout>
+  {frontmatter.title}
+  <Content />
+</Layout>

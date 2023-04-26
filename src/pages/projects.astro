@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProjectItem from "../components/ProjectItem.astro";
-import { PROJECTS } from "../consts";
+const projects = await Astro.glob("./projects/*.md");
 ---
 
 <Layout>
@@ -9,12 +9,12 @@ import { PROJECTS } from "../consts";
     class="grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-8 justify-items-center"
   >
     {
-      PROJECTS.map(({ href, src, projectTitle, projectDescription }) => (
+      projects.map((project) => (
         <ProjectItem
-          href={"/projects/" + projectTitle.replaceAll(" ", "").toLowerCase()}
-          src={src}
-          projectTitle={projectTitle}
-          projectDescription={projectDescription}
+          href={`/${project.frontmatter.slug}`}
+          src={project.frontmatter.imgSrc}
+          projectTitle={project.frontmatter.title}
+          projectDescription={project.frontmatter.description}
         />
       ))
     }

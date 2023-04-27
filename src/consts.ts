@@ -1,5 +1,5 @@
 export const SITE_TITLE = "Bartosz Sobina Home Page";
-export const SITE_DESCRIPTION = "My homepage created using astro, react and tailwind css";
+export const SITE_DESCRIPTION = "My homepage created with astro, react and tailwind";
 export const GITHUB_URL = "https://github.com/Ressobe";
 export const YOUTUBE_URL = "https://www.youtube.com/channel/UCcWXlahMIEBY9WR11VVELuQ";
 export const DEVICONS_URL = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/";
@@ -7,7 +7,6 @@ export const DEVICONS_URL = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/
 export const NAV_LINKS: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
-  { label: "Posts", href: "/posts" },
   { label: "Workflow", href: "/workflow" },
 ];
 

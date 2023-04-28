@@ -18,6 +18,42 @@ const { Content, frontmatter } = Astro.props.project;
 ---
 
 <Layout>
-  {frontmatter.title}
-  <Content />
+  <section class="text-lg">
+    <a class="hover:underline text-pink-500" href="/projects">Projects</a> &gt <h1
+      class="inline-block text-blue-300 underline"
+    >
+      {frontmatter.title}
+    </h1>
+    <section class="my-5">
+      <Content />
+    </section>
+  </section>
+
+  <ul class="my-4">
+    <li>
+      <span class="text-blue-400 p-1 mb-1">WEBSITE :</span>
+      <a
+        class="hover:underline text-pink-500 cursor-pointer"
+        href={frontmatter.website}
+        target="_blank"
+        >{frontmatter.website}
+      </a>
+    </li>
+    <li>
+      <span class="text-blue-400 p-1 mb-1">PLATFORM :</span>
+      {frontmatter.platform}
+    </li>
+    <li>
+      <span class="text-blue-400 p-1">STACK :</span>
+      {frontmatter.stack}
+    </li>
+  </ul>
+
+  <section>
+    {
+      frontmatter.imgSrc
+        .split(" ")
+        .map((src: string) => <img class="my-4" src={src} />)
+    }
+  </section>
 </Layout>

@@ -2,7 +2,11 @@
 title: Terminal Site
 slug: terminal-site
 description: I just love terminal
-imgSrc: /terminalSite.png
+imgSrc: /terminalSite.png /terminalSite1.png
+
+website: https://ressobe.github.io/terminalSite/
+platform: Windows/Linux/MacOS
+stack: Typescript
 ---
 
 

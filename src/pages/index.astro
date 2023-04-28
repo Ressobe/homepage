@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Carousel from "../components/Carousel";
+import { SKILLS, DEVICONS_URL } from "src/consts";
 ---
 
 <Layout>
@@ -30,16 +31,46 @@ import Carousel from "../components/Carousel";
     </p>
   </section>
 
+  <!-- A strong understanding of the basic -->
+  <!-- Other languages I work with -->
+  <!-- On my free time I enjoying working with -->
+  <!-- Other Tools I'm familiar with -->
+
   <section class="mt-20">
-    <h2 class="mt-5 text-xl text-center font-bold">Technology that I use</h2>
-    <Carousel client:load />
+    <h2 class="my-8 text-xl text-center font-bold">
+      A strong understanding of the basic
+    </h2>
+
+    <div class="flex justify-evenly text-lg gap-6">
+      <img class="w-20 my-2 inline" src={DEVICONS_URL + SKILLS[0].src} />
+      <section class="max-w-sm">
+        <p class="my-2 inline text-justify">
+          <section class="inline font-bold text-xl">HTML :</section> Everyday I learn
+          about different elements HTML 5 has to offer, breaking out of making evrything
+          div
+        </p>
+      </section>
+    </div>
+
+    <div class="flex justify-evenly text-lg gap-6">
+      <img class="w-20 my-2 inline" src={DEVICONS_URL + SKILLS[1].src} />
+      <section class="max-w-sm">
+        <p class="my-2 inline text-justify">
+          <section class="inline font-bold text-xl">CSS :</section> I use CSS on
+          a daily basis and I am familiar with modern CSS practices FlexBox and Grid
+        </p>
+      </section>
+    </div>
+
+    <div class="flex justify-evenly text-lg gap-6">
+      <img class="w-20 my-2 inline" src={DEVICONS_URL + SKILLS[2].src} />
+      <section class="max-w-sm">
+        <p class="my-2">
+          <section class="font-bold inline text-xl">Javascript :</section> Regularly
+          working with ES6 syntax. Such as arrow functions, template literals, ternary
+          operators, etc
+        </p>
+      </section>
+    </div>
   </section>
-
-  <!-- <section> -->
-  <!--   <p>What I want to learn</p> -->
-  <!-- </section> -->
-
-  <!-- <section> -->
-  <!--   <p>Timeline</p> -->
-  <!-- </section> -->
 </Layout>

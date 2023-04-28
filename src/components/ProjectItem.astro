@@ -10,14 +10,14 @@ const { href, src, projectTitle, projectDescription } = Astro.props;
 
 <div class="block max-w-xs text-center">
   <a href={href} data-te-ripple-init data-te-ripple-color="light">
-    <img class="rounded" src={src} alt="terminal site" />
+    <img class="rounded" src={src.split(" ")[0]} alt={projectTitle} />
   </a>
   <div class="p-4">
-    <h5
+    <h1
       class="mb-1 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
     >
       {projectTitle}
-    </h5>
+    </h1>
     <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
       {projectDescription}
     </p>

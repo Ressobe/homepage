@@ -1,7 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Carousel from "../components/Carousel";
-import { SKILLS, DEVICONS_URL } from "src/consts";
+import {
+  BASIC_SKILLS,
+  OTHER_SKILLS,
+  FREE_TIME_SKILLS,
+  FAMILIAR_SKILLS,
+} from "src/consts";
 ---
 
 <Layout>
@@ -31,46 +35,79 @@ import { SKILLS, DEVICONS_URL } from "src/consts";
     </p>
   </section>
 
-  <!-- A strong understanding of the basic -->
-  <!-- Other languages I work with -->
-  <!-- On my free time I enjoying working with -->
-  <!-- Other Tools I'm familiar with -->
-
   <section class="mt-20">
     <h2 class="my-8 text-xl text-center font-bold">
       A strong understanding of the basic
     </h2>
-
-    <div class="flex justify-evenly text-lg gap-6">
-      <img class="w-20 my-2 inline" src={DEVICONS_URL + SKILLS[0].src} />
-      <section class="max-w-sm">
-        <p class="my-2 inline text-justify">
-          <section class="inline font-bold text-xl">HTML :</section> Everyday I learn
-          about different elements HTML 5 has to offer, breaking out of making evrything
-          div
-        </p>
-      </section>
-    </div>
-
-    <div class="flex justify-evenly text-lg gap-6">
-      <img class="w-20 my-2 inline" src={DEVICONS_URL + SKILLS[1].src} />
-      <section class="max-w-sm">
-        <p class="my-2 inline text-justify">
-          <section class="inline font-bold text-xl">CSS :</section> I use CSS on
-          a daily basis and I am familiar with modern CSS practices FlexBox and Grid
-        </p>
-      </section>
-    </div>
-
-    <div class="flex justify-evenly text-lg gap-6">
-      <img class="w-20 my-2 inline" src={DEVICONS_URL + SKILLS[2].src} />
-      <section class="max-w-sm">
-        <p class="my-2">
-          <section class="font-bold inline text-xl">Javascript :</section> Regularly
-          working with ES6 syntax. Such as arrow functions, template literals, ternary
-          operators, etc
-        </p>
-      </section>
-    </div>
+    {
+      BASIC_SKILLS.map((skill) => (
+        <div class="flex justify-evenly my-4 items-center text-lg gap-6">
+          <img class="w-20 my-2 inline" src={skill.src} />
+          <section class="max-w-sm">
+            <p class="my-2 inline text-justify">
+              <span class="font-bold text-xl">{skill.title} :</span>
+              {skill.text}
+            </p>
+          </section>
+        </div>
+      ))
+    }
   </section>
+
+  <section class="mt-20">
+    <h2 class="my-8 text-xl text-center font-bold">
+      Other languages I work with
+    </h2>
+    {
+      OTHER_SKILLS.map((skill) => (
+        <div class="flex justify-evenly my-4 items-center text-lg gap-6">
+          <section class="max-w-sm">
+            <p class="my-2 inline text-justify">
+              <span class="font-bold text-xl">{skill.title} :</span>
+              {skill.text}
+            </p>
+          </section>
+          <img class="w-20 my-2 inline" src={skill.src} />
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="mt-20">
+    <h2 class="my-8 text-xl text-center font-bold">
+      On my free time I enjoying working with
+    </h2>
+    {
+      FREE_TIME_SKILLS.map((skill) => (
+        <div class="flex justify-evenly my-4 min-w-max items-center text-lg gap-6">
+          <img class="w-20 my-2 inline" src={skill.src} />
+          <section class="max-w-sm">
+            <p class="my-2 inline text-justify">
+              <span class="font-bold text-xl">{skill.title} :</span>
+              {skill.text}
+            </p>
+          </section>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="mt-20">
+    <h2 class="my-8 text-xl text-center font-bold">
+      Other Tools I'm familiar with
+    </h2>
+  </section>
+  {
+    FAMILIAR_SKILLS.map((skill) => (
+      <div class="flex justify-evenly my-4  items-center text-lg gap-6">
+        <section class="max-w-sm">
+          <p class="my-2 inline text-justify">
+            <span class="font-bold text-xl">{skill.title} :</span>
+            {skill.text}
+          </p>
+        </section>
+        <img class="w-20 my-2 inline" src={skill.src} />
+      </div>
+    ))
+  }
 </Layout>

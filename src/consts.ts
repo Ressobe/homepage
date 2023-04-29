@@ -10,62 +10,58 @@ export const NAV_LINKS: { label: string; href: string }[] = [
   { label: "Workflow", href: "/workflow" },
 ];
 
-
-export const SKILLS: {
-  name: string;
-  src: string;
-  level: number;
-}[] = [
+export const BASIC_SKILLS = [
   {
-    name: "HTML",
-    src: "/html5/html5-original.svg",
-    level: 5,
+    title: "HTML",
+    src: DEVICONS_URL + "/html5/html5-original.svg",
+    text: "Everyday I learn about different elements HTML 5 has to offer, breaking out of making evrything div",
   },
 
   {
-    name: "CSS",
-    src: "/css3/css3-original.svg",
-    level: 3,
+    title: "CSS",
+    src: DEVICONS_URL + "/css3/css3-original.svg",
+    text: "I use CSS on a daily basis and I am familiar with modern CSS practices FlexBox and Grid",
   },
 
   {
-    name: "Javascript",
-    src: "javascript/javascript-original.svg",
-    level: 2,
-  },
-
-  {
-    name: "React",
-    src: "react/react-original.svg",
-    level: 2,
-  },
-
-  {
-    name: "Python",
-    src: "python/python-original.svg",
-    level: 4,
-  },
-
-  {
-    name: "Linux",
-    src: "linux/linux-original.svg",
-    level: 3,
-  },
-
-  {
-    name: "Git",
-    src: "git/git-original.svg",
-    level: 2,
-  },
-
-  {
-    name: "Typescript",
-    src: "typescript/typescript-original.svg",
-    level: 1,
+    title: "Javascript",
+    src: DEVICONS_URL + "javascript/javascript-original.svg",
+    text: "Regularly working with ES6 syntax. Such as arrow functions, template literals, ternary",
   },
 ];
 
-export const TO_LEARN: {
-  name: string;
-  src: string;
-}[] = [{ name: "rust", src: "rust/rust-plain.svg" }];
+export const OTHER_SKILLS = [
+  {
+    title: "React",
+    src: DEVICONS_URL + "react/react-original.svg",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae diam ac erat aliquam accumsan vel vel nibh. Donec condimentum nisi sapien, tincidunt pretium erat accumsan vitae",
+  },
+
+  {
+    title: "Python",
+    src: DEVICONS_URL + "python/python-original.svg",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae diam ac erat aliquam accumsan vel vel nibh. Donec condimentum nisi sapien, tincidunt pretium erat accumsan vitae",
+  },
+];
+
+export const FREE_TIME_SKILLS = [
+  {
+    title: "Linux",
+    src: DEVICONS_URL + "linux/linux-original.svg",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae diam ac erat aliquam accumsan vel vel nibh. Donec condimentum nisi sapien",
+  },
+];
+
+export const FAMILIAR_SKILLS = [
+  {
+    title: "Git",
+    src: DEVICONS_URL + "git/git-original.svg",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae diam ac erat aliquam accumsan vel vel nibh. Donec condimentum nisi sapien, tincidunt pretium erat accumsan vitae",
+  },
+
+  {
+    title: "Typescript",
+    src: DEVICONS_URL + "typescript/typescript-original.svg",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae diam ac erat aliquam accumsan vel vel nibh. Donec condimentum nisi sapien, tincidunt pretium erat accumsan vitae",
+  },
+];

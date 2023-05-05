@@ -1,0 +1,83 @@
+---
+import {
+  BASIC_SKILLS,
+  OTHER_SKILLS,
+  FREE_TIME_SKILLS,
+  FAMILIAR_SKILLS,
+} from "src/consts";
+---
+<section class="mt-20">
+  <h2 class="my-8 text-xl text-center font-bold">
+    A strong understanding of the basic
+  </h2>
+  {
+    BASIC_SKILLS.map((skill) => (
+      <div class="flex justify-evenly my-4 items-center text-lg gap-6">
+        <img class="w-20 my-2 inline" src={skill.src} />
+        <section class="max-w-sm">
+          <p class="my-2 inline text-justify">
+            <span class="font-bold text-xl">{skill.title} :</span>
+            {skill.text}
+          </p>
+        </section>
+      </div>
+    ))
+  }
+</section>
+
+<section class="mt-20">
+  <h2 class="my-8 text-xl text-center font-bold">
+    Other languages I work with
+  </h2>
+  {
+    OTHER_SKILLS.map((skill) => (
+      <div class="flex justify-evenly my-4 items-center text-lg gap-6">
+        <section class="max-w-sm">
+          <p class="my-2 inline text-justify">
+            <span class="font-bold text-xl">{skill.title} :</span>
+            {skill.text}
+          </p>
+        </section>
+        <img class="w-20 my-2 inline" src={skill.src} />
+      </div>
+    ))
+  }
+</section>
+
+<section class="mt-20">
+  <h2 class="my-8 text-xl text-center font-bold">
+    On my free time I enjoying working with
+  </h2>
+  {
+    FREE_TIME_SKILLS.map((skill) => (
+      <div class="flex justify-evenly my-4 min-w-max items-center text-lg gap-6">
+        <img class="w-20 my-2 inline" src={skill.src} />
+        <section class="max-w-sm">
+          <p class="my-2 inline text-justify">
+            <span class="font-bold text-xl">{skill.title} :</span>
+            {skill.text}
+          </p>
+        </section>
+      </div>
+    ))
+  }
+</section>
+
+<section class="mt-20">
+  <h2 class="my-8 text-xl text-center font-bold">
+    Other Tools I'm familiar with
+  </h2>
+  {
+    FAMILIAR_SKILLS.map((skill) => (
+      <div class="flex justify-evenly my-4  items-center text-lg gap-6">
+        <section class="max-w-sm">
+          <p class="my-2 inline text-justify">
+            <span class="font-bold text-xl">{skill.title} :</span>
+            {skill.text}
+          </p>
+        </section>
+        <img class="w-20 my-2 inline" src={skill.src} />
+      </div>
+    ))
+  }
+</section>

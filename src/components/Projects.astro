@@ -1,0 +1,20 @@
+---
+import ProjectItem from "../components/ProjectItem.astro";
+const projects = await Astro.glob("../pages/projects/*.md");
+---
+
+<h1 class="font-bold text-center text-xl mb-10">Some of the things I've built</h1>
+  <div
+    class="grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-8 justify-items-center"
+  >
+    {
+      projects.map((project) => (
+        <ProjectItem
+          href={`/${project.frontmatter.slug}`}
+          src={project.frontmatter.imgSrc}
+          projectTitle={project.frontmatter.title}
+          projectDescription={project.frontmatter.description}
+        />
+      ))
+    }
+  </div>

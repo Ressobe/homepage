@@ -3,23 +3,27 @@ interface Props {
   href: string;
   src: string;
   projectTitle: string;
-  projectDescription: string;
+  stack: string,
 }
-const { href, src, projectTitle, projectDescription } = Astro.props;
+const { href, src, projectTitle,  stack } = Astro.props;
 ---
 
-<div class="block max-w-xs text-center">
+<div class="block max-w-xs text-center border-2 border-black dark:border-white rounded">
   <a href={href} data-te-ripple-init data-te-ripple-color="light">
-    <img class="rounded" src={src.split(" ")[0]} alt={projectTitle} />
+    <img  src={src.split(" ")[0]} alt={projectTitle} />
   </a>
-  <div class="p-4">
+  <div class="p-2">
     <h1
-      class="mb-1 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
+      class="mb-1 text-xl font-bold leading-tight text-neutral-800 dark:text-neutral-50"
     >
       {projectTitle}
     </h1>
-    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-      {projectDescription}
+    <p class="my-4 text-base text-neutral-800 dark:text-neutral-200">
+    {
+      stack.split(",").map((s) => (
+        <span class="p-2 m-3  font-bold border-2 rounded border-black dark:border-white">{s}</span>
+      ))
+    }
     </p>
   </div>
 </div>

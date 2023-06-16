@@ -1,8 +1,7 @@
 ---
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
-import Video from "../components/Video.astro";
+import ThemeToggleButton from "../components/ThemeToggleButton";
 ---
 
 <script is:inline>
@@ -40,10 +39,11 @@ import Video from "../components/Video.astro";
   <body
     class="min-h-full bg-orange-100 dark:bg-zinc-800 dark:text-white break-words"
   >
-    <Nav />
-    <Video />
+    <div class="absolute top-5 right-10">
+      <ThemeToggleButton client:load/>
+    </div>
 
-    <main class="px-8 py-10 mx-auto max-w-3xl">
+    <main class="px-8 py-10 mx-auto max-w-4xl">
       <slot />
     </main>
 
